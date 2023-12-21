@@ -4,9 +4,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'https',
+        hostname: 'pipn-home.elyetto.com',
+        pathname: '/uploads/**',
+      },
+      {
         protocol: 'http',
         hostname: 'localhost',
-        port: '1337',
+        port: '1338',
         pathname: '/uploads/**',
       },
       {
