@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_elements_feature_variants",
+  "info": {
+    "displayName": "Feature variant",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "showLink": {
+      "type": "boolean"
+    },
+    "newTab": {
+      "type": "boolean"
+    },
+    "url": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "comipems",
+        "superior"
+      ],
+      "required": true
+    }
+  }
+}
