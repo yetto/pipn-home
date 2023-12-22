@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_features_swiches",
+  "info": {
+    "displayName": "Features swich",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "feature": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.feature-variant"
+    }
+  }
+}
