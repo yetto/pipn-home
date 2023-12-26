@@ -24,7 +24,10 @@
         "YOUTUBE",
         "TWITTER",
         "DISCORD",
-        "WEBSITE"
+        "WEBSITE",
+        "TIKTOK",
+        "FACEBOOK",
+        "INSTAGRAM"
       ]
     }
   }
