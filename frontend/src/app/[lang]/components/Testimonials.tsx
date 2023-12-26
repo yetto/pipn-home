@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 interface Testimonial {
   text: string;
@@ -24,6 +27,26 @@ interface TestimonialsProps {
     testimonials: Testimonial[];
   };
 }
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
 function Testimonial({ text, authorName, picture }: Testimonial) {
   const imageUrl = getStrapiMedia(picture.data.attributes.url);
@@ -76,11 +99,11 @@ export default function Testimonials({ data }: TestimonialsProps) {
         </h1>
         <p className="mt-4 text-lg text-center">{data.description}</p>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
+      <Carousel infinite={true} responsive={responsive} className="container mx-auto grid grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
         {data.testimonials.map((testimonial: Testimonial, index: number) => (
           <Testimonial key={index} {...testimonial} />
         ))}
-      </div>
+      </Carousel>
     </section>
   );
 }
