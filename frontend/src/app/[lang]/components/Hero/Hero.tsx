@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import HighlightedText from "./HighlightedText";
-import { getStrapiMedia } from "../utils/api-helpers";
-import { renderButtonStyle } from "../utils/render-button-style";
+import HighlightedText from "../HighlightedText";
+import { getStrapiMedia } from "../../utils/api-helpers";
+import { renderButtonStyle } from "../../utils/render-button-style";
+import cn from "clsx";
+import s from "./Hero.module.css";
+
 
 interface Button {
   id: string;
@@ -30,14 +33,19 @@ interface HeroProps {
     description: string;
     picture: Picture;
     buttons: Button[];
+    isBackGround: boolean;
   };
 }
 
 export default function Hero({ data }: HeroProps) {
   const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
+  const classNameRoot = cn({
+    [s.root]: !data.isBackGround,
+    [s.rootImage]: data.isBackGround,
+  })
 
   return (
-    <section className="dark:bg-black dark:text-gray-100">
+    <section className={classNameRoot}>
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center p-6 text-center rounded-lg lg:max-w-md xl:max-w-lg lg:text-left">
           <HighlightedText
