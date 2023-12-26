@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 interface Testimonial {
   text: string;
@@ -25,6 +28,26 @@ interface TestimonialsProps {
   };
 }
 
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
+
 function Testimonial({ text, authorName, picture }: Testimonial) {
   const imageUrl = getStrapiMedia(picture.data.attributes.url);
   return (
@@ -41,25 +64,7 @@ function Testimonial({ text, authorName, picture }: Testimonial) {
         </div>
       </div>
       <div className="relative text-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          fill="currentColor"
-          className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700"
-        >
-          <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-          <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-        </svg>
         <p className="px-6 py-1 text-lg italic">{text}</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          fill="currentColor"
-          className="absolute bottom-0 right-0 w-8 h-8 dark:text-gray-700"
-        >
-          <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-          <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-        </svg>
       </div>
       <span className="w-12 h-1 my-2 rounded-lg dark:bg-yellow-400"></span>
       <p>{authorName}</p>
@@ -76,11 +81,11 @@ export default function Testimonials({ data }: TestimonialsProps) {
         </h1>
         <p className="mt-4 text-lg text-center">{data.description}</p>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
+      <Carousel infinite={true} responsive={responsive} className="container mx-auto grid grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
         {data.testimonials.map((testimonial: Testimonial, index: number) => (
           <Testimonial key={index} {...testimonial} />
         ))}
-      </div>
+      </Carousel>
     </section>
   );
 }

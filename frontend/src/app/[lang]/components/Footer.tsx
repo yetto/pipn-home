@@ -2,8 +2,8 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
-import { CgWebsite } from "react-icons/cg";
-import { FaDiscord } from "react-icons/fa";
+import { CgWebsite, CgInstagram, CgFacebook } from "react-icons/cg";
+import { FaDiscord, FaTiktok } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 
 interface FooterLink {
@@ -61,6 +61,12 @@ function RenderSocialIcon({ social }: { social: string | undefined }) {
       return <AiFillYoutube />;
     case "DISCORD":
       return <FaDiscord />;
+    case "TIKTOK":
+      return <FaTiktok />;
+    case "FACEBOOK":
+      return <CgFacebook />;
+    case "INSTAGRAM":
+      return <CgInstagram />;
     default:
       return null;
   }

@@ -35,21 +35,21 @@ export default function Pricing({ data }: PriceProps) {
           </span>
           <h2 className="text-4xl font-bold lg:text-5xl">{data.title}</h2>
         </div>
-        <div className="flex flex-wrap items-stretch max-w-5xl mx-auto">
+        <div className="flex flex-wrap items-stretch max-w-5xl mx-auto justify-center">
           {data.plans.map((plan: Plan) => (
             <div
               key={plan.id}
               className="w-full p-4 mb-8  sm:mx-40 lg:mx-0 lg:w-1/3 lg:mb-0"
             >
               <div
-                className={`flex flex-col p-6 space-y-6 rounded shadow sm:p-8 min-h-[475px] min-w-[300px] ${
+                className={`flex flex-col p-6 space-y-6 rounded shadow sm:p-8 min-h-[559px] min-w-[300px] ${
                   plan.isRecommended ? "dark:bg-yellow-600" : "dark:bg-gray-800"
                 }`}
               >
                 <div className="space-y-2">
-                  <h4 className="text-3xl font-bold mb-6">{plan.name}</h4>
+                  <h4 className="text-3xl font-bold mb-6 min-h-[72px]">{plan.name}</h4>
                   <span className="text-6xl font-bold ">
-                    {plan.price}
+                    ${plan.price}
                     <span
                       className={`ml-1 text-sm tracking-wid ${
                         plan.isRecommended
