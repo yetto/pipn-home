@@ -27,7 +27,7 @@ function NavLink({ url, text, submenuLinks }: NavLink) {
     <div>
   {submenuLinks?.data && submenuLinks?.data?.length > 0 ? (
     <div >
-    <Theme>
+    <Theme hasBackground={false}>
        <DropdownMenu.Root >
           <DropdownMenu.Trigger>
             <h5 className="mb-2 border-b-2  dark:border-transparent">
