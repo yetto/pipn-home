@@ -5,7 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'pipn-home.elyetto.com',
+        hostname: 'cms.maspreparacion.com',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'stg.cms.maspreparacion.com',
         pathname: '/uploads/**',
       },
       {
@@ -13,10 +18,6 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1338',
         pathname: '/uploads/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.pexels.com',
       }
     ],
   },

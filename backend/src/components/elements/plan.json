@@ -27,6 +27,15 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-feature.product-feature"
+    },
+    "url": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "newTab": {
+      "type": "boolean"
     }
   }
 }

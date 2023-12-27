@@ -95,7 +95,7 @@ const rootHeadingButtonClassNameSuperior = cn(s.buttonSelectedCourseRight,{
 
   return (
     <section className="dark:bg-black dark:text-gray-100 m:py-12 lg:py-24">
-      <div className="container mx-auto py-4 space-y-2 text-center">
+      <div className="container mx-auto py-4 space-y-4 text-center">
         <h2 className="text-5xl font-bold">{data.heading}</h2>
         <p className="dark:text-gray-400">{data.description}</p>
         <Flex>
@@ -103,7 +103,7 @@ const rootHeadingButtonClassNameSuperior = cn(s.buttonSelectedCourseRight,{
             value={Course.COMIPEMS}
             className={rootHeadingButtonClassName}
             onClick={handleOnCourse(Course.COMIPEMS)}>
-            Comipens
+            COMIPEMS
           </Button>
           <Button
             value={Course.SUPERIOR}
