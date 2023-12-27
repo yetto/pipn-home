@@ -5,7 +5,7 @@ import { getStrapiMedia } from "../../utils/api-helpers";
 import { renderButtonStyle } from "../../utils/render-button-style";
 import cn from "clsx";
 import s from "./Hero.module.css";
-
+import classNames from "classnames";
 
 interface Button {
   id: string;
@@ -34,18 +34,25 @@ interface HeroProps {
     picture: Picture;
     buttons: Button[];
     isBackGround: boolean;
+    darkurl: string | null | undefined;
+    ligthUrl: string | null | undefined;
   };
 }
 
 export default function Hero({ data }: HeroProps) {
-  const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
+  const { darkurl, ligthUrl } = data;
+  const imgUrl = getStrapiMedia(data.picture.data.attributes.url);  
+
+  const backgroundImage =`bg-[url(${'"' + ligthUrl + '"'})] dark:bg-[url(${'"' + darkurl + '"'})]`
+ // const hardcoreImage = `bg-[url("https://wallpaperset.com/w/full/7/5/a/545589.jpg")] dark:bg-[url("https://wallpapercosmos.com/w/full/b/a/9/1209998-3840x2160-desktop-4k-glow-in-the-dark-background-photo.jpg")]`
+ 
   const classNameRoot = cn({
     [s.root]: !data.isBackGround,
-    [s.rootImage]: data.isBackGround,
+    [backgroundImage]: data.isBackGround,
   })
 
   return (
-    <section className={classNameRoot}>
+    <section className={classNames(classNameRoot)}>
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center p-6 text-center rounded-lg lg:max-w-md xl:max-w-lg lg:text-left">
           <HighlightedText
