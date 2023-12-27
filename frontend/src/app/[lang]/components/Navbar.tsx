@@ -1,27 +1,59 @@
 "use client";
+
+import { Theme,} from "@radix-ui/themes";
 import Logo from "./Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 interface NavLink {
   id: number;
   url: string;
   newTab: boolean;
   text: string;
+  submenuLinks: any;
 }
 
 interface MobileNavLink extends NavLink {
   closeMenu: () => void;
 }
 
-function NavLink({ url, text }: NavLink) {
+function NavLink({ url, text, submenuLinks }: NavLink) {
   const path = usePathname();
-
   return (
-    <li className="flex">
+    <div>
+  {submenuLinks?.data && submenuLinks?.data?.length > 0 ? (
+    <div >
+    <Theme hasBackground={false}>
+       <DropdownMenu.Root >
+          <DropdownMenu.Trigger>
+            <h5 className="mb-2 border-b-2  dark:border-transparent">
+              {text}
+            </h5>
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content>
+            {submenuLinks?.data?.map((item: any) => (
+              <DropdownMenu.Item className="ml-4">
+                <Link
+                  href={item.url}
+                  className={`flex items-center mx-4 mb-2 border-b-2  ${
+                    path === item.url && "dark:text-yellow-400 dark:border-yellow-400"
+                  }}`}
+                >
+                  {item?.name}
+                </Link>
+              </DropdownMenu.Item>
+            ))
+            }
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
+      </Theme>
+    </div>
+) : (
+  <li className="flex">
       <Link
         href={url}
         className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent ${
@@ -31,10 +63,12 @@ function NavLink({ url, text }: NavLink) {
         {text}
       </Link>
     </li>
-  );
+)}
+    </div>
+  )
 }
 
-function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
+function MobileNavLink({ url, text, closeMenu, submenuLinks }: MobileNavLink) {
   const path = usePathname();
   const handleClick = () => {
     closeMenu();
@@ -77,7 +111,7 @@ export default function Navbar({
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <ul className="items-stretch hidden space-x-3 lg:flex">
             {links.map((item: NavLink) => (
-              <NavLink key={item.id} {...item} />
+              <NavLink key={item.id} {...item} submenuLinks={item.submenuLinks} />
             ))}
           </ul>
         </div>
