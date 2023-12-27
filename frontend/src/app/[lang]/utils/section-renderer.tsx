@@ -4,6 +4,7 @@ import Testimonials from "../components/Testimonials";
 import FeaturesSwich from "../components/FeaturesSwich/FeaturesSwich";
 import Pricing from "../components/Pricing";
 import Email from "../components/Email";
+import RichTextPage from "../components/RichTextPage";
 
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
@@ -13,6 +14,8 @@ export function sectionRenderer(section: any, index: number) {
       return <Features key={index} data={section} />;
     case "sections.features-swich":
       return <FeaturesSwich key={index} data={section}/>;
+      case "sections.rich-text":
+        return <RichTextPage key={index} data={section} />;
     case "sections.testimonials-group":
       return <Testimonials key={index} data={section} />;
     case "sections.pricing":

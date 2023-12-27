@@ -32,6 +32,12 @@
     "isBackGround": {
       "type": "boolean",
       "default": false
+    },
+    "ligthUrl": {
+      "type": "string"
+    },
+    "darkurl": {
+      "type": "string"
     }
   }
 }
