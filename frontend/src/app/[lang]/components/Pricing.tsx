@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Feature {
   id: string;
   attributes: {
@@ -11,6 +13,9 @@ interface Plan {
   description: string;
   price: number;
   pricePeriod: string;
+  url: string;
+  buttonLabel: string;
+  newTab: string;
   isRecommended: boolean;
   product_features: {
     data: Feature[];
@@ -48,6 +53,9 @@ export default function Pricing({ data }: PriceProps) {
               >
                 <div className="space-y-2">
                   <h4 className="text-3xl font-bold mb-6 min-h-[72px]">{plan.name}</h4>
+                  <h4 className="text-3xl font-bold mb-6 min-h-[72px]">
+                    {plan.name}
+                  </h4>
                   <span className="text-6xl font-bold ">
                     ${plan.price}
                     <span
@@ -99,16 +107,17 @@ export default function Pricing({ data }: PriceProps) {
                     </li>
                   ))}
                 </ul>
-                <button
-                  type="button"
+                <Link
+                  href={plan.url ? plan.url : "about:blank"}
+                  target={plan.newTab ? "_blank" : "_self"}
                   className={`inline-block px-5 py-3 font-semibold tracking-wider text-center rounded   ${
                     plan.isRecommended
                       ? "dark:bg-gray-900 dark:text-yellow-400"
                       : "dark:bg-yellow-400 dark:text-gray-900"
                   }`}
                 >
-                  Get Started
-                </button>
+                  {plan.buttonLabel ? plan.buttonLabel : "Info"}
+                </Link>
               </div>
             </div>
           ))}
