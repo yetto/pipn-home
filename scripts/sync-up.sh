@@ -13,8 +13,8 @@ elif [[ $1 = "staging" ]]; then
 
 fi # END if arg #3
 
-BACKUP_PATH=/data/backups/pipn/$(date +%Y%m%d)
-mkdir -p $BACKUP_PATH
+FRONT_LOCAL='../frontend'
+BACK_LOCAL='../backend'
 
-rsync -rlptgoDzi --progress --exclude='node_modules' -e "ssh" $FRONT_REMOTE  $BACKUP_PATH \
-&& rsync -rlptgoDzi --progress --exclude='node_modules' -e "ssh" $BACK_REMOTE   $BACKUP_PATH;
+rsync -rlptgoDzi --progress --dry-run --exclude='node_modules' $FRONT_LOCAL -e "ssh" $FRONT_REMOTE \
+&& rsync -rlptgoDzi --progress --dry-run --exclude='node_modules' $BACK_LOCAL  -e "ssh" $BACK_REMOTE

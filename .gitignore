@@ -4,6 +4,7 @@
 export_*
 *_backup_*
 .strapi
+notes.txt
 
 # dependencies
 /node_modules

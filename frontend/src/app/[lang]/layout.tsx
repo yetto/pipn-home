@@ -31,7 +31,8 @@ async function getGlobal(lang: string): Promise<any> {
       "footer.socialLinks",
       "footer.categories",
     ],
-    locale: lang,
+    // locale: lang, // ::TODO:: Add support for other locales
+    locale: 'en',
   };
   return await fetchAPI(path, urlParamsObject, options);
 }
