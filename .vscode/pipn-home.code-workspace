@@ -1,0 +1,51 @@
+{
+  "folders": [
+    {
+      "name": "pipn-home-monorepo",
+      "path": "../"
+    },
+    {
+      "name": "backend",
+      "path": "../backend"
+    },
+    {
+      "name": "frontend",
+      "path": "../frontend"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules/": true,
+      "packages/": true
+    },
+    "jest.autoEnable": false,
+    "jest.disabledWorkspaceFolders": [
+      "ROOT",
+      "backend",
+      "frontend",
+    ],
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#ec892b",
+      "activityBar.background": "#ec892b",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#a7f7ce",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#15202b99",
+      "sash.hoverBorder": "#ec892b",
+      "statusBar.background": "#d17013",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#a2570f",
+      "statusBarItem.remoteBackground": "#d17013",
+      "statusBarItem.remoteForeground": "#15202b",
+      "titleBar.activeBackground": "#d17013",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#d1701399",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#d17013"
+  },
+  "extensions": {
+    "recommendations": ["dbaeumer.vscode-eslint", "orta.vscode-jest"]
+  }
+}
