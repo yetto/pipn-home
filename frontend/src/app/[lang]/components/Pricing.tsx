@@ -52,7 +52,6 @@ export default function Pricing({ data }: PriceProps) {
                 }`}
               >
                 <div className="space-y-2">
-                  <h4 className="text-3xl font-bold mb-6 min-h-[72px]">{plan.name}</h4>
                   <h4 className="text-3xl font-bold mb-6 min-h-[72px]">
                     {plan.name}
                   </h4>
