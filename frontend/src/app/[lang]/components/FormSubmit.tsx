@@ -18,12 +18,12 @@ export default function FormSubmit({
 
   async function handleSubmit() {
     if (email === "") {
-      setErrorMessage("Email cannot be blank.");
+      setErrorMessage("No hay correo? 😀");
       return;
     }
 
     if (!emailRegex.test(email)) {
-      setErrorMessage("Invalid email format.");
+      setErrorMessage("Correo invalido 😵");
       return;
     }
 
@@ -37,34 +37,34 @@ export default function FormSubmit({
     });
 
     if (!res.ok) {
-      setErrorMessage("Email failed to submit.");
+      setErrorMessage("No se pudo enviar 🫣");
       return;
     }
     setErrorMessage("");
-    setSuccessMessage("Email successfully submitted!");
+    setSuccessMessage("¡Listo! ❤️");
     setEmail("");
   }
 
   return (
-    <div className="flex flex-row items-center self-center justify-center flex-shrink-0 shadow-md lg:justify-end">
+    <div className="flex flex-row items-center self-center justify-center flex-shrink-0 lg:justify-end">
       <div className="flex flex-col">
         <div className="flex flex-row">
           {successMessage ? (
-            <p className="text-green-700 bg-green-300 px-4 py-2 rounded-lg">
+            <p className="px-4 py-2 text-green-600 bg-green-200 rounded-lg">
               {successMessage}
             </p>
           ) : (
             <>
               <input
                 type="email"
-                placeholder={errorMessage || placeholder}
+                placeholder={placeholder}
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                className={"w-3/5 p-3 rounded-l-lg sm:w-2/3 text-gray-700"}
+                className={"w-3/5 p-3 rounded-l-lg sm:w-2/3 text-gray-700 shadow-md"}
               />
               <button
                 type="button"
-                className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 dark:bg-yellow-400 dark:text-gray-900"
+                className="w-2/5 p-3 rounded-r-lg btn-primary int-rotating-element sm:w-1/3"
                 onClick={handleSubmit}
               >
                 {text}
@@ -74,7 +74,7 @@ export default function FormSubmit({
         </div>
 
         {errorMessage && (
-          <p className="text-red-500 bg-red-200 px-4 py-2 rounded-lg my-2">
+          <p className="px-4 py-2 my-2 text-red-500 bg-red-100 rounded-lg">
             {errorMessage}
           </p>
         )}

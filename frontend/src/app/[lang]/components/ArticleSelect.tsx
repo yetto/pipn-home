@@ -21,8 +21,8 @@ interface Article {
 
 function selectedFilter(current: string, selected: string) {
   return current === selected
-    ? "px-3 py-1 rounded-lg hover:underline dark:bg-yellow-700 dark:text-gray-100"
-    : "px-3 py-1 rounded-lg hover:underline dark:bg-yellow-400 dark:text-gray-900";
+    ? "int-base mr-2 mb-2 px-3 py-1 rounded-lg hover:underline dark:bg-yellow-700 bg-yellow-700 dark:text-gray-100 text-gray-100"
+    : "int-base mr-2 mb-2 px-3 py-1 rounded-lg hover:underline dark:bg-yellow-400 bg-yellow-400 dark:text-gray-900 text-gray-900";
 }
 
 export default function ArticleSelect({
@@ -39,11 +39,11 @@ export default function ArticleSelect({
 }) {
 
   return (
-    <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
+    <div className="p-4 rounded-lg dark:bg-gray-900 bg-gray-100 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Navega por categoría</h4>
 
       <div>
-        <div className="flex flex-wrap py-6 space-x-2 dark:border-gray-400">
+        <div className="flex flex-wrap py-6 dark:border-gray-400">
           {categories.map((category: Category) => {
             if (category.attributes.articles.data.length === 0) return null;
             return (

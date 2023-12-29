@@ -99,7 +99,7 @@ export default function Footer({
           </div>
 
           <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Categories</p>
+            <p className="pb-1 text-lg font-medium font-semibold">Categorías</p>
             <ul>
               {categoryLinks.map((link: CategoryLink) => (
                 <CategoryLink key={link.id} {...link} />
@@ -108,7 +108,7 @@ export default function Footer({
           </div>
 
           <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Menu</p>
+            <p className="pb-1 text-lg font-medium font-semibold">Menu</p>
             <ul>
               {menuLinks.map((link: FooterLink) => (
                 <FooterLink key={link.id} {...link} />
@@ -119,13 +119,13 @@ export default function Footer({
         <div className="grid justify-center pt-6 lg:justify-between">
           <div className="flex">
             <span className="mr-2">
-              ©{new Date().getFullYear()} All rights reserved
+              ©{new Date().getFullYear()} Derechos reservados
             </span>
             <ul className="flex">
               {legalLinks.map((link: FooterLink) => (
                 <Link
                   href={link.url}
-                  className="text-gray-400 hover:text-gray-300 mr-2"
+                  className="mr-2 text-gray-400 hover:text-gray-300"
                   key={link.id}
                 >
                   {link.text}

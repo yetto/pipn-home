@@ -48,11 +48,11 @@ export default function Post({ data }: { data: Article }) {
                     alt="article cover image"
                     width={400}
                     height={400}
-                    className="w-full h-96 object-cover rounded-lg"
+                    className="object-cover w-full rounded-lg h-96"
                 />
             )}
             <div className="space-y-6">
-                <h1 className="leading-tight text-5xl font-bold ">{title}</h1>
+                <h1 className="text-5xl font-bold leading-tight ">{title}</h1>
                 <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center dark:text-gray-400">
                     <div className="flex items-center md:space-x-2">
                         {authorImgUrl && (
@@ -61,7 +61,7 @@ export default function Post({ data }: { data: Article }) {
                                 alt="article cover image"
                                 width={400}
                                 height={400}
-                                className="w-14 h-14 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                                className="border rounded-full w-14 h-14 dark:bg-gray-500 dark:border-gray-700"
                             />
                         )}
                         <p className="text-md dark:text-yellow-400">

@@ -41,15 +41,16 @@ interface HeroProps {
 
 export default function Hero({ data }: HeroProps) {
   const { darkurl, ligthUrl } = data;
-  const imgUrl = getStrapiMedia(data.picture.data.attributes.url);  
+  const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
 
-  const backgroundImage =`bg-[url(${'"' + ligthUrl + '"'})] dark:bg-[url(${'"' + darkurl + '"'})]`
- // const hardcoreImage = `bg-[url("https://wallpaperset.com/w/full/7/5/a/545589.jpg")] dark:bg-[url("https://wallpapercosmos.com/w/full/b/a/9/1209998-3840x2160-desktop-4k-glow-in-the-dark-background-photo.jpg")]`
- 
+  const backgroundImage = `bg-[url(${'"' + ligthUrl + '"'})] dark:bg-[url(${
+    '"' + darkurl + '"'
+  })]`;
+
   const classNameRoot = cn({
     [s.root]: !data.isBackGround,
     [backgroundImage]: data.isBackGround,
-  })
+  });
 
   return (
     <section className={classNames(classNameRoot)}>
