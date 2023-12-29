@@ -1,23 +1,23 @@
-.buttonSelectedCourseLeft{
-    @apply px-8 py-3 text-lg font-semibold dark:border-gray-100 rounded-l-2xl border rounded-r-none
+.buttonSelectedCourseLeft {
+  @apply px-8 py-3 text-lg font-semibold transition duration-200 border rounded-r-none rounded-l-2xl dark:border-gray-100;
 }
 
-.buttonSelectedCourseRight{
-    @apply px-8 py-3 text-lg font-semibold dark:border-gray-100 rounded-r-2xl border rounded-l-none
+.buttonSelectedCourseRight {
+  @apply px-8 py-3 text-lg font-semibold transition duration-200 border rounded-l-none rounded-r-2xl dark:border-gray-100;
 }
 
 .buttonSelectedCourseComipems {
-    @apply px-8 py-3 text-lg font-semibold rounded dark:bg-yellow-400 dark:text-gray-900 rounded-l-2xl rounded-r-none
+  @apply px-8 py-3 text-lg font-semibold text-white bg-yellow-500 border-yellow-500 hover:bg-yellow-600 dark:bg-yellow-400 dark:text-gray-900;
 }
 
 .buttonSelectedCourseSuperior {
-    @apply px-8 py-3 text-lg font-semibold rounded dark:bg-blue-500 dark:text-gray-900  rounded-r-2xl rounded-l-none
+  @apply px-8 py-3 text-lg font-semibold text-white bg-blue-500 border-blue-500 hover:bg-blue-600 dark:bg-blue-500 dark:text-gray-900;
 }
 
 .buttonComipems {
-    @apply inline-block px-4 py-2 mt-4 text-sm font-semibold text-white transition duration-200 ease-in-out bg-yellow-500 rounded-lg hover:bg-yellow-600
+  @apply inline-block px-4 py-2 mt-4 text-sm font-semibold text-white transition duration-200 ease-in-out bg-yellow-500 rounded-lg hover:bg-yellow-600;
 }
 
 .buttonSuperior {
-    @apply inline-block px-4 py-2 mt-4 text-sm font-semibold text-white transition duration-200 ease-in-out bg-blue-500 rounded-lg hover:bg-blue-600
+  @apply inline-block px-4 py-2 mt-4 text-sm font-semibold text-white transition duration-200 ease-in-out bg-blue-500 rounded-lg hover:bg-blue-600;
 }

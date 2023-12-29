@@ -10,43 +10,88 @@ body {
   @apply dark:bg-black
 }
 
+.fade-in {
+  animation: display 1s linear forwards;
+}
+
+@keyframes display {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .btn-base {
+    @apply font-semibold transition duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75;
+  }
+  .btn-primary {
+    @apply px-8 py-3 text-lg font-semibold text-white transition duration-200 bg-yellow-500 border border-yellow-500 shadow-md hover:bg-yellow-600 dark:bg-yellow-400 dark:text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75;
+  }
+  .btn-primary-small {
+    @apply px-4 py-2 mt-4 text-sm font-semibold text-white transition duration-200 bg-yellow-500 border border-yellow-500 shadow-md hover:bg-yellow-600 dark:bg-yellow-400 dark:text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75;
+  }
+  .btn-secondary {
+    @apply px-8 py-3 text-lg font-semibold text-white transition duration-200 bg-blue-500 border border-blue-500 shadow-md hover:bg-blue-600 dark:bg-blue-400 dark:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
+
+@layer utilities {
+  .int-base {
+    @apply transition duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-75 backdrop-grayscale-0;
+  }
+  .int-rotating-element {
+    @apply transition duration-200 hover:rotate-1;
+  }
+}
+
+
 
 /******************************************* 
   Rich Text Styles
 *******************************************/ 
 
+.sectionContainer {
+  @apply dark:bg-black dark:text-blue-100 md:py-12 lg:py-24;
+}
+
 /* Headers */
 .rich-text h1 {
-  @apply text-4xl font-bold mb-4 text-yellow-400;
+  @apply mb-4 text-4xl font-bold text-yellow-500 dark:text-yellow-400;
 }
 
 .rich-text h2 {
-  @apply text-3xl font-bold mb-4 text-yellow-400;
+  @apply mb-4 text-3xl font-bold text-yellow-500 dark:text-yellow-400;
 }
 
 .rich-text h3 {
-  @apply text-2xl font-bold mb-4 text-yellow-400;
+  @apply mb-4 text-2xl font-bold text-yellow-500 dark:text-yellow-400;
 }
 
 .rich-text h4 {
-  @apply text-xl font-bold mb-4 text-yellow-400;
+  @apply mb-4 text-xl font-bold text-yellow-500 dark:text-yellow-400;
 }
 
 .rich-text h5 {
-  @apply text-lg font-bold mb-4 text-yellow-400;
+  @apply mb-4 text-lg font-bold text-yellow-500 dark:text-yellow-400;
 }
 
 .rich-text h6 {
-  @apply text-base font-bold mb-4 text-yellow-200;
+  @apply mb-4 text-base font-bold text-yellow-200;
 }
 
 /* Horizontal rules */
 .rich-text hr {
-  @apply border-gray-300 my-8;
+  @apply my-8 border-gray-300;
 }
 
 .rich-text a {
-  @apply text-yellow-400 underline;
+  @apply text-yellow-500 underline dark:text-yellow-400;
 }
 
 /* Typographic replacements */
@@ -69,16 +114,16 @@ body {
 
 /* Blockquotes */
 .rich-text blockquote {
-  @apply border-l-4 border-gray-400 pl-4 py-2 mb-4;
+  @apply py-2 pl-4 mb-4 border-l-4 border-gray-400;
 }
 
 /* Lists */
 .rich-text ul {
-  @apply list-disc pl-4 mb-4;
+  @apply pl-4 mb-4 list-disc;
 }
 
 .rich-text ol {
-  @apply list-decimal pl-4 mb-4;
+  @apply pl-4 mb-4 list-decimal;
 }
 
 .rich-text li {
@@ -86,43 +131,43 @@ body {
 }
 
 .rich-text li > ul {
-  @apply list-disc pl-4 mb-2;
+  @apply pl-4 mb-2 list-disc;
 }
 
 .rich-text li > ol {
-  @apply list-decimal pl-4 mb-2;
+  @apply pl-4 mb-2 list-decimal;
 }
 
 /* Code blocks */
 .rich-text pre {
-  @apply font-mono bg-gray-900 text-gray-100 rounded p-4  my-6;
+  @apply p-4 my-6 font-mono text-gray-100 bg-gray-900 rounded;
 }
 
 .rich-text code {
-  @apply font-mono bg-gray-900 text-gray-100 rounded px-2 py-1;
+  @apply px-2 py-1 font-mono text-gray-100 bg-gray-900 rounded;
 }
 
 /* Tables */
 .rich-text table {
-  @apply w-full border-collapse border-gray-300 my-6;
+  @apply w-full my-6 border-collapse border-gray-300;
 }
 
 .rich-text th {
-  @apply bg-gray-900 text-left py-2 px-4 font-semibold border-b border-gray-300;
+  @apply px-4 py-2 font-semibold text-left bg-gray-900 border-b border-gray-300;
 }
 
 .rich-text td {
-  @apply py-2 px-4 border-b border-gray-300;
+  @apply px-4 py-2 border-b border-gray-300;
 }
 
 /* Images */
 .rich-text img {
-  @apply w-full object-cover rounded-xl my-6;
+  @apply object-cover w-full my-6 rounded-xl;
 }
 
 /* Custom containers */
 .rich-text .warning {
-  @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
+  @apply px-4 py-2 mb-4 text-yellow-700 bg-yellow-100 border-yellow-500 rounded-lg;
 }
 
 

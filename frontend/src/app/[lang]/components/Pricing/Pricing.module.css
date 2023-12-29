@@ -1,0 +1,64 @@
+/* BODY STYLES */
+.rootPlanBody {
+  @apply flex flex-col p-6 space-y-6 rounded shadow-lg sm:p-8 min-h-[559px] min-w-[300px] hover:rotate-1 transition duration-200;
+}
+.planBodyRecommended {
+  @apply scale-105 bg-yellow-500 dark:bg-yellow-600;
+}
+.planBodyNormal {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+/* PERIOD STYLES */
+.rootPeriod {
+  @apply ml-1 text-lg tracking-wider;
+}
+.periodRecommended {
+  @apply text-white dark:text-gray-900;
+}
+.periodNormal {
+  @apply text-gray-600 dark:text-yellow-500;
+}
+
+/* DESCRIPTION STYLES */
+.rootDescription {
+  @apply mt-3 text-lg font-bold leading-relaxed;
+}
+.descriptionRecommended {
+  @apply text-white dark:text-gray-900;
+}
+.descriptionNormal {
+  @apply dark:text-gray-400;
+}
+
+/* FEATURES STYLES */
+.rootFeatures {
+  @apply flex-1 mb-6;
+}
+.featuresRecommended {
+  @apply font-semibold text-gray-800 dark:text-gray-800;
+}
+.featuresNormal {
+  @apply dark:text-gray-400;
+}
+
+.rootIconFeatures {
+  @apply flex-shrink-0 w-6 h-6;
+}
+.iconFeaturesRecommended {
+  @apply dark:text-gray-900;
+}
+.iconFeaturesNormal {
+  @apply dark:text-gray-400;
+}
+
+/* CTA STYLES */
+.rootCta {
+  @apply inline-block px-5 py-3 font-semibold tracking-wider text-center rounded;
+}
+.ctaRecommended {
+  @apply text-white bg-gray-900 dark:bg-gray-900 dark:text-yellow-400;
+}
+.ctaNormal {
+  @apply text-gray-900 bg-yellow-400 dark:bg-yellow-400 dark:text-gray-900;
+}

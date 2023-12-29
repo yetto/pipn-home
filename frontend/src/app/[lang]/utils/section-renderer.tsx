@@ -13,9 +13,9 @@ export function sectionRenderer(section: any, index: number) {
     case "sections.features":
       return <Features key={index} data={section} />;
     case "sections.features-swich":
-      return <FeaturesSwich key={index} data={section}/>;
-      case "sections.rich-text":
-        return <RichTextPage key={index} data={section} />;
+      return <FeaturesSwich key={index} data={section} />;
+    case "sections.rich-text":
+      return <RichTextPage key={index} data={section} />;
     case "sections.testimonials-group":
       return <Testimonials key={index} data={section} />;
     case "sections.pricing":

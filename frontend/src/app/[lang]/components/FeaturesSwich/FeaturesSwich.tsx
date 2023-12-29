@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import cn from "clsx";
 import s from "./FeaturesSwich.module.css";
+
 interface FeaturesProps {
   data: {
     heading: string;
@@ -24,16 +25,23 @@ interface FeatureSwich {
 }
 
 enum Course {
-  COMIPEMS = 'comipems',
-  SUPERIOR = 'superior'
+  COMIPEMS = "comipems",
+  SUPERIOR = "superior",
 }
 
-function FeatureSwich({ title, description, showLink, newTab, url, text, variant }: FeatureSwich) {
-
+function FeatureSwich({
+  title,
+  description,
+  showLink,
+  newTab,
+  url,
+  text,
+  variant,
+}: FeatureSwich) {
   const rootHeadingButtonClassName = cn({
     [s.buttonComipems]: variant === Course.COMIPEMS,
     [s.buttonSuperior]: variant === Course.SUPERIOR,
-})
+  });
   return (
     <div className="flex flex-col items-center p-4">
       <svg
@@ -49,7 +57,7 @@ function FeatureSwich({ title, description, showLink, newTab, url, text, variant
         ></path>
       </svg>
       <h3 className="my-3 text-3xl font-semibold">{title}</h3>
-      <div className="space-y-1 leading-tight my-6">
+      <div className="my-6 space-y-1 leading-tight">
         <p>{description}</p>
       </div>
       {showLink && url && text && (
@@ -68,52 +76,62 @@ function FeatureSwich({ title, description, showLink, newTab, url, text, variant
 }
 
 export default function FeaturesSwich({ data }: FeaturesProps) {
-
-   const [courseSelected, setCourseSelected] = useState(Course.COMIPEMS);
-   const [dataFilterByCourse, setDataFilterByCourse] = useState<FeatureSwich[]>([])
-   const handleOnCourse = useCallback((course: Course) => () => {
+  const [courseSelected, setCourseSelected] = useState(Course.COMIPEMS);
+  const [dataFilterByCourse, setDataFilterByCourse] = useState<FeatureSwich[]>(
+    []
+  );
+  const handleOnCourse = useCallback(
+    (course: Course) => () => {
       setCourseSelected(course);
-    }, [setCourseSelected]);
+    },
+    [setCourseSelected]
+  );
 
   useEffect(() => {
-    let dataFiler
-    if(courseSelected === Course.COMIPEMS) {
-      dataFiler = data.feature.filter((feature) => feature.variant === Course.COMIPEMS)
+    let dataFiler;
+    if (courseSelected === Course.COMIPEMS) {
+      dataFiler = data.feature.filter(
+        (feature) => feature.variant === Course.COMIPEMS
+      );
     } else {
-      dataFiler = data.feature.filter((feature) => feature.variant === Course.SUPERIOR)
+      dataFiler = data.feature.filter(
+        (feature) => feature.variant === Course.SUPERIOR
+      );
     }
-    setDataFilterByCourse(dataFiler)
-  }, [courseSelected])
+    setDataFilterByCourse(dataFiler);
+  }, [courseSelected]);
 
-  const rootHeadingButtonClassName = cn(s.buttonSelectedCourseLeft,{
+  const rootHeadingButtonClassName = cn(s.buttonSelectedCourseLeft, {
     [s.buttonSelectedCourseComipems]: courseSelected === Course.COMIPEMS,
-})
+  });
 
-const rootHeadingButtonClassNameSuperior = cn(s.buttonSelectedCourseRight,{
-  [s.buttonSelectedCourseSuperior]: courseSelected === Course.SUPERIOR,
-})
+  const rootHeadingButtonClassNameSuperior = cn(s.buttonSelectedCourseRight, {
+    [s.buttonSelectedCourseSuperior]: courseSelected === Course.SUPERIOR,
+  });
 
   return (
-    <section className="dark:bg-black dark:text-gray-100 m:py-12 lg:py-24">
-      <div className="container mx-auto py-4 space-y-4 text-center">
+    <section className="sectionContainer">
+      <div className="container py-4 mx-auto space-y-4 text-center">
         <h2 className="text-5xl font-bold">{data.heading}</h2>
         <p className="dark:text-gray-400">{data.description}</p>
         <Flex>
           <Button
             value={Course.COMIPEMS}
             className={rootHeadingButtonClassName}
-            onClick={handleOnCourse(Course.COMIPEMS)}>
+            onClick={handleOnCourse(Course.COMIPEMS)}
+          >
             COMIPEMS
           </Button>
           <Button
             value={Course.SUPERIOR}
-            className={rootHeadingButtonClassNameSuperior} 
-            onClick={handleOnCourse(Course.SUPERIOR)}>
+            className={rootHeadingButtonClassNameSuperior}
+            onClick={handleOnCourse(Course.SUPERIOR)}
+          >
             Superior
           </Button>
         </Flex>
       </div>
-      <div className="container mx-auto my-6 grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="container grid justify-center gap-4 mx-auto my-6 sm:grid-cols-2 lg:grid-cols-3">
         {dataFilterByCourse.map((feature: FeatureSwich, index: number) => (
           <FeatureSwich key={index} {...feature} />
         ))}
