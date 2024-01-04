@@ -1,0 +1,7 @@
+.container {
+  @apply flex flex-wrap lg:items-stretch max-w-5xl mx-auto justify-center text-center;
+}
+
+.buttonContainer {
+  @apply text-center mt-5 lg:mt-14;
+}

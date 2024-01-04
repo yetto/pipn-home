@@ -1,0 +1,11 @@
+.container {
+  @apply w-full h-full col-start-1 col-end-6 lg:col-start-2 lg:col-end-4 lg:pl-5;
+}
+
+.RithContainer {
+  @apply col-start-1 col-end-6 mt-3 lg:col-start-4 lg:col-end-7 lg:text-center;
+}
+
+.buttonContainer {
+  @apply text-center mt-5 lg:mt-[12rem];
+}

@@ -1,0 +1,4 @@
+.root {
+    @apply container px-4 mx-auto border max-w-xs cursor-pointer;
+  }
+  
