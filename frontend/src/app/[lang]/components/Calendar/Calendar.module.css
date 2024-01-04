@@ -1,0 +1,15 @@
+.root {
+  @apply w-full p-4 mb-8 dark:bg-gray-800  sm:mx-40 lg:ml-4 lg:mr-0 lg:w-1/3 lg:mb-3  cursor-pointer hover:bg-yellow-400 hover:rotate-1 transition duration-200 hover:text-gray-600;
+}
+
+.calendarSelected {
+  @apply bg-yellow-600 dark:bg-yellow-600 text-gray-600;
+}
+
+.leftContainerCalendar {
+  @apply w-1/3 self-center;
+}
+
+.rigthContainerCalendar {
+  @apply w-2/3 text-right;
+}
