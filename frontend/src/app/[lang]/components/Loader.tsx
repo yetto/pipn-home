@@ -1,10 +1,10 @@
 export default function Loader() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center z-50  bg-opacity-40 bg-gray-500">
+    <div className="absolute inset-0 z-50 flex items-center justify-center bg-white bg-opacity-40">
     <div role="status">
       <svg
         aria-hidden="true"
-        className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-purple-400"
+        className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-400"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ export default function Loader() {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
+      <span className="sr-only">Un segundo... ⌚</span>
     </div>
   </div>
   )
